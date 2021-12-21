@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,9 +39,15 @@ class MainActivity : AppCompatActivity() {
         val valorTicket = findViewById<TextView>(R.id.valorTicket)
         val tipValue = findViewById<SeekBar>(R.id.valorPropina)
         val tipTotalAmount = findViewById<TextView>(R.id.totalAPagar)
-        val tip = valorTicket.text.toString()
-            .toFloat() * (1 + (tipValue.progress.toFloat() / 100f))
-        tipTotalAmount.text = "$tip"
+        try{
+            val tip = valorTicket.text.toString()
+                .toFloat() * (1 + (tipValue.progress.toFloat() / 100f))
+            tipTotalAmount.text = "$tip"
+
+        }catch(e: NumberFormatException){
+            Toast.makeText(applicationContext,"Ingresar un valor de ticket",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 
