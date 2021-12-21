@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seek: SeekBar,
                                            progress: Int, fromUser: Boolean) {
-                val propinaPorcentaje = findViewById<TextView>(R.id.porcentajePropina)
-                val valorPropina = findViewById<SeekBar>(R.id.valorPropina)
-                propinaPorcentaje.setText("${valorPropina.progress}%")
+                val tipPercentage = findViewById<TextView>(R.id.porcentajePropina)
+                val tipValue = findViewById<SeekBar>(R.id.valorPropina)
+                tipPercentage.setText("${tipValue.progress}%")
 
             }
 
@@ -34,13 +34,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("WrongViewCast")
-    fun calcularBtnListener(view: android.view.View){
+    fun calculateBtnListener(view: android.view.View){
         val valorTicket = findViewById<TextView>(R.id.valorTicket)
-        val valorPropina = findViewById<SeekBar>(R.id.valorPropina)
-        val valorTotalAPagar = findViewById<TextView>(R.id.totalAPagar)
-        val propina = valorTicket.text.toString()
-            .toFloat() * (1 + (valorPropina.progress.toFloat() / 100f))
-        valorTotalAPagar.setText("$propina")
+        val tipValue = findViewById<SeekBar>(R.id.valorPropina)
+        val tipTotalAmount = findViewById<TextView>(R.id.totalAPagar)
+        val tip = valorTicket.text.toString()
+            .toFloat() * (1 + (tipValue.progress.toFloat() / 100f))
+        tipTotalAmount.setText("$tip")
     }
 
 
