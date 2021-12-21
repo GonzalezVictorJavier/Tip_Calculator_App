@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
                                            progress: Int, fromUser: Boolean) {
                 val tipPercentage = findViewById<TextView>(R.id.porcentajePropina)
                 val tipValue = findViewById<SeekBar>(R.id.valorPropina)
-                tipPercentage.setText("${tipValue.progress}%")
+                tipPercentage.text = "${tipValue.progress}%"
 
             }
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val tipTotalAmount = findViewById<TextView>(R.id.totalAPagar)
         val tip = valorTicket.text.toString()
             .toFloat() * (1 + (tipValue.progress.toFloat() / 100f))
-        tipTotalAmount.setText("$tip")
+        tipTotalAmount.text = "$tip"
     }
 
 
